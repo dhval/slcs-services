@@ -1,0 +1,42 @@
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.iml
+*.bak
+*.log
+
+# Secret files
+src/main/resources/secret.properties
+client_secret.html
+gmail-quickstart.json/
+
+## java/ide specific
+*.class
+*.jar
+*.war
+*.ear
+*.classpath
+*.project
+*.springBeans
+*nb-configuration.xml
+nbactions.xml
+.metadata/
+.idea/
+.settings/
+Servers/
+build/
+dist/
+bower_components/
+node_modules/
+grunt-config/
+target/
+nbproject/
+build-impl.xml
+private/
+project.properties
+project.xml
+test/
+build.sh
