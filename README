@@ -1,31 +1,28 @@
 
-## Spring Boot Admin Dashboard - Pluggable user provisioning and web administration UI build with spring-boot and angularjs.
+## Time Sheet App - Open source workflow for managing billing time sheets using spring-boot and angularjs.
 
 <img src="https://travis-ci.org/la-team/light-admin.png?branch=master"/>
 
-The primary goal of the project is to scaffold boiler plate code for developing open source and pluggable front-end admin dashboard web UI that can be integrated with specific needs.
-
-[Light Admin](http://lightadmin.org) makes it possible to <b>focus on the stuff that matters</b> instead of spending time on auxiliary functionality.
+[Time App](https://slcs.herokuapp.com/login) makes it possible to <b>customize time sheet workflows</b> for small companies without spending a lot of money on few paid options available.
 
 ### Features
 
-* <b>DSL configurations</b>: Allows developers to easily configure their administration user interface
-* <b>Displaying persistent entities</b>: Customizable Listing & Quick Views with paging & sorting capabilities
-* <b>CRUD operations</b>: Complete entities manipulation support (including their associations)
-* <b>Automatic Validation</b>: JSR-303 annotation-based validation rules support
-* <b>Search</b>: Allows users to search entities by text fields, dates, numeric values & associations
-* <b>Filtering Scopes</b>: Use scopes to filter data by predefined criteria
-* <b>Pluggable Security</b>: Authentication based on [Spring Security](http://www.springsource.org/spring-security)
-* <b>REST API</b>: Enriching your application with REST API based on [Spring Data REST](http://www.springsource.org/spring-data/rest)
+* <b>Extensible Configuration</b>: Allows developers to easily configure their user interface using Angular and Spring framework.
+* <b>Cloud and Local Deployment</b>: Examples demonstrating deployment on Heroku or Ubuntu using [Spring Boot](https://projects.spring.io/spring-boot/).
+* <b>CRUD operations</b>: Complete entities manipulation support using Spring repositories.
+* <b>Custom Validation</b>: JSR-303 annotation-based validation rules support
+* <b>Task Scheduling</b>: Send email/alerts to users using [Spring Scheduler](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/scheduling.html).
+* <b>Pluggable Security</b>: Authentication based on [Spring Security](http://www.springsource.org/spring-security).
+* <b>REST API</b>: Enriching your application with REST API based on [Spring Data REST](http://www.springsource.org/spring-data/rest).
 * <b>Easy integration</b>: Servlet 2.5/3.0 web applications supported
 
 
 3rd Party Time Sheet Manager
 
-This application allows users to submit their timesheet similar to depositing checks online. 
+This application allows users to submit their timesheet similar to depositing checks online.
 
 Step 1: User upload an image/pdf signed and enter hours for the week.
-Step 2: Supervisor approves the timesheet after verifying uploaded artifact.   
+Step 2: Supervisor approves the timesheet after verifying uploaded artifact.
 
 Security
 
@@ -41,14 +38,14 @@ This app is secured using latest available spring-framework security api's. Some
 
 Web UI
 
-This app uses popular front-end libraries like bootstrap, font-awesome, angularjs etc. 
+This app uses popular front-end libraries like bootstrap, font-awesome, angularjs etc.
 The skin is borrowed from [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/).
 All of this can be easily upgraded or changed using bower, which is used for managing web resources.
 However authentication and templating for user provioning is done using spring-thymeleaf libraries.
 
 Rest API
 
-The front-end uses rest api for querying. 
+The front-end uses rest api for querying.
 
 Persistence
 
@@ -78,7 +75,7 @@ mvn spring-boot:run
 
 Draft
 
---- Similar 
+--- Similar
 
 https://github.com/la-team/light-admin
 
@@ -96,5 +93,3 @@ http://www.javacodegeeks.com/2014/07/spring-rest-ajax-and-cors.html
 http://startbootstrap.com/template-categories/popular/
 http://getbootstrap.com/examples/sticky-footer-navbar/
 https://getbootstrap.com/examples/navbar/
-
-
