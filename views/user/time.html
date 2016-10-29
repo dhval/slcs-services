@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+
+<div class="container-fluid">
+<div class="panel panel-info" flex>
+    <div class="panel-heading" layout="row">
+        <md-content layout="row">
+            <md-datepicker layout="row" layout-align="start center"
+                           ng-model="sheet.beginDt" md-date-filter="appCtrl.filterPastSunday"
+                           md-min-date="appCtrl.minDate" md-max-date="appCtrl.maxDate"
+                           md-placeholder="Enter date" ng-change="pickDate()">
+            </md-datepicker>
+            <md-list layout="row" layout-align="space-between end">
+                <md-list-item layout-align="center end"
+                        ng-if="sheet.status=='submitted' || sheet.status=='approved'">
+                    <span class="label label-default"
+                          ng-class="{'submitted':'label-primary', 'approved':'label-success'}[sheet.status]">
+                        {{sheet.status}}
+                    </span>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <p><strong>Project:</strong> {{sheet.project.label}}</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <p><strong>User:</strong> {{sheet.user.email}}</p>
+                    </div>
+                </md-list-item>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+                        <p><strong>Approver:</strong> {{sheet.approver.email}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+    <div class="panel-body">
+        <div class="entry">
+            <div class="item chargecode">Charge Code</div>
+            <div ng-repeat="day in sheet.headers" class="item">{{day}}</div>
+            <div class="item total">Total</div>
+        </div>
+        <div ng-repeat="entry in sheet.entries" class="entry">
+            <div class="item chargecode">{{entry.code}}</div>
+            <input maxlength="5" ng-model="entry.sun" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'sun')"/>
+            <input maxlength="5" ng-model="entry.mon" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'mon')"/>
+            <input maxlength="5" ng-model="entry.tue" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'tue')"/>
+            <input maxlength="5" ng-model="entry.wed" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'wed')"/>
+            <input maxlength="5" ng-model="entry.thu" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'thu')"/>
+            <input maxlength="5" ng-model="entry.fri" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'fri')"/>
+            <input maxlength="5" ng-model="entry.sat" class="item"
+                   ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'sat')"/>
+            <div class="item total">{{entry.total}}</div>
+        </div>
+    </div>
+    <div class="panel-footer" layout="row">
+        <md-content layout="row" flex="100" layout-align="center center">
+            <md-button flex="25" class="md-warn md-raised" layout-align="end"
+                       ng-disabled="sheet.status === 'approved' || sheet.status === 'submitted'"
+                       ng-click="appCtrl.isValid() && clearSheet(sheet)"> Clear
+            </md-button>
+            <md-button flex="25" class="md-accent md-hue-1" layout-align="end"
+                       ng-disabled="sheet.status === 'approved' || sheet.status === 'submitted'"
+                       ng-click="appCtrl.isValid() && saveSheet(sheet)"> Save
+            </md-button>
+            <md-button flex="25" layout-align="start" class="md-primary md-hue-1">
+                <label for="file-input">Attachment</label>
+                <input id="file-input" type="file" name="file"
+                       ng-files="onFileSelect($files)" accept=".pdf,.csv,.xsl,.xml,.mpp,application/vnd.ms-excel">
+            </md-button>
+            <md-button flex="25" class="md-accent  md-hue-2" layout-align="end"
+                       ng-disabled="sheet.status === 'approved' || sheet.status === 'submitted'"
+                       ng-click="appCtrl.isValid() && submitSheet(sheet)"> Submit
+            </md-button>
+        </md-content>
+    </div>
+</div>
+    <div class="well well-sm">
+        <ul>
+            <li>Save your timesheet everyday,</li>
+            <li>Once you are ready to submit attach your client approval (optional) and then;</li>
+            <li>Submit your timesheet, you cannot edit after submission.</li>
+        </ul>
+    </div>
+    <div class="well well-sm">
+        <ul class="list-group">
+            <li class="list-group-item">Please enter hours, roundoff to nearest quarter, e.g. 2 hours and 15 minutes is 2.25 billable hours.</li>
+            <li class="list-group-item">You can save or submit timesheet anytime you like. Your timesheet is due at end of week, every Saturday</li>
+            <li class="list-group-item">You <em>cannot</em> edit timesheet once submitted.</li>
+            <li class="list-group-item">Please provide your client approval as attachment and after submitting check your email for acknowledgement.</li>
+            <li class="list-group-item">Once submitted your timesheet will be approved or declined, in later case you will be requested to resubmit timesheet.</li>
+            <li class="list-group-item">To check your timesheet status, click <a href="#sheet">here</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>
+

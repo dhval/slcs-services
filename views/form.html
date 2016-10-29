@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+<div ng-include="'validationTemplate'"></div>
+<form name="userForm" class="form-vertical" ng-submit="handleSubmit()">
+    <div class="container-fluid">
+        <div class="row" ng-style="isDisabled && {'opacity':'0.75'}">
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Name Information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="fname" class="asterisk">First Name</label>
+                            <input id="fname" autofill="" class="form-control" name="fname" type="text"
+                                   placeholder="First Name" ng-model="domainInfo.fname"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="mname">Middle Name</label>
+                            <input id="mname" autofill="" class="form-control" name="mname" type="text"
+                                   placeholder="Middle Initial" maxlength="25"
+                                   ng-model="domainInfo.mname"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname" class="asterisk">Last Names</label>
+                            <input id="lname" autofill="" class="form-control" name="lname" type="text"
+                                   placeholder="Last Name" ng-model="domainInfo.lname"/>
+                        </div>
+                        <div class="form-group">
+                            <md-content>
+                                <h4>Select Date</h4>
+                                <md-datepicker ng-model="myDate" md-date-filter="onlyWeekendPredicate"
+                                               md-placeholder="Enter date"></md-datepicker>
+                            </md-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Identification Information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="email" class="asterisk">Email</label>
+                            <input id="email" autofill="" class="form-control" name="email"
+                                   type="text" placeholder="Email"
+                                   ng-model="domainInfo.email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input id="password" class="form-control" name="password"
+                                   type="password" ng-model="domainInfo.password"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Verify Password</label>
+                            <input id="password1" class="form-control" name="password1"
+                                   type="password" ng-model="domainInfo.password1"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Profile Information</h3>
+                    </div>
+                    <div class="panel-body form-profile">
+                        <div class="form-inline">
+                            <label for="role" class="control-label">
+                                User Role
+                                <select id="role" autofill="" class="form-control" ng-model="domainInfo.role">
+                                    <option value="">-- Select --</option>
+                                    <option value="New Employee Background Check">Admin</option>
+                                    <option value="Existing Employee Background Check">Supervisor</option>
+                                    <option value="CLEAN Certification Background Check">User</option>
+                                </select>
+                            </label>
+                            <label>
+                                Login Enabled
+                                <input class="form-control" name="loginEnabled" type="checkbox"
+                                       ng-model="domainInfo.loginEnabled"/>
+                            </label>
+                            <label>
+                                Credentials Not Expired
+                                <input class="form-control" name="notExpired" type="checkbox"
+                                       ng-model="domainInfo.notExpired"/>
+                            </label>
+                            <label>
+                                Login Not Locked
+                                <input class="form-control" name="notLocked" type="checkbox"
+                                       ng-model="domainInfo.notLocked"/>
+                            </label>
+                        </div>
+                        <div class="form-group well well-sm" style="text-align:right;margin-bottom: 9px;">
+                            <button type="button" class="btn btn-block" ng-click="appCtrl.clear()">
+                                <i class="fa fa-trash-o fa-lg"></i> Clear </a>
+                            </button>
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fa fa-search"> Submit </i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="well">
+    <p>
+        Use this page to create a user. You can create three types of users:
+    <ol class="unstyled">
+        <li>Admin</li>
+        <li>Supervisor</li>
+        <li>User</li>
+    </ol>
+    </p>
+</div>
+</body>
+
+</html>

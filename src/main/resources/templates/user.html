@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/header :: header">
+</head>
+<body>
+
+<div id="wrapper" ng-controller="appController as appCtrl">
+
+    <div ng-include="'errorTemplate'"></div>
+    <div ng-include="'validationTemplate'"></div>
+    <md-toolbar ng-cloak="" class="md-hue-1" style="margin-bottom: 5px;">
+        <div class="md-toolbar-tools">
+            <h2 flex="" class="md-flex"><span>Time Entry</span></h2>
+            <md-menu-bar flex="10" flex-xs="20" flex-sm="15">
+                <md-menu>
+                    <button class="md-button md-icon-button md-hue-2 md-fab md-mini" ng-click="$mdOpenMenu($event)">
+                        <i class="material-icons">reorder</i>
+                    </button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button href="#/sheet">TimeSheet Status</md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button href="#/time">Submit TimeSheet</md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button href="#/profile">Edit Profile</md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button ng-click="appCtrl.logout()">Logout</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </md-menu-bar>
+        </div>
+    </md-toolbar>
+
+    <!-- Page Content -->
+    <div ui-view="">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-header">Loading ... </h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    <!-- /#page-content -->
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Angular Global Templates -->
+<script type="text/ng-template" id="validationTemplate">
+    <div class="callout callout-error ng-cloak" ng-if="appCtrl.validation.length">
+        <ul style="margin: 0 0 0 20px;">
+            <li ng-repeat="error in appCtrl.validation">{{error}}</li>
+        </ul>
+    </div>
+</script>
+<script type="text/ng-template" id="errorTemplate">
+    <div class="jnet-alert-container" ng-if="appCtrl.error.title">
+        <div class="jnet-alert" style="opacity: 0.85027039117758;">
+            <div class="jnet-alert-icon"><i class="fa fa-exclamation"></i></div>
+            <div class="jnet-alert-body"><strong>{{appCtrl.error.title}}</strong>
+
+                <p>{{appCtrl.error.content}}</p>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- Load Angular App -->
+<script th:inline="javascript">
+    require.config({
+        baseUrl: contextPath,
+        waitSeconds: 0
+    });
+    require(['jquery', 'angular', 'js/app'], function ($, angular, app) {
+        $('#container').attr('ng-cloak', '');
+        $('#container').addClass('init');
+        app.constant('props', {
+            isMock: false,
+            token: $("meta[name='_csrf']").attr("content"),
+            ctxPath: contextPath,
+            API_PATH: contextPath + '/public',
+            DEFAULT_ERROR: {
+                "title": "Error!",
+                "message": "Please contact Help Desk."
+            },
+            TIME_OUT: 45000,
+            RETRIES: 25,
+            RETRY_INT: 15000
+        });
+        angular.bootstrap(document, ['app']);
+    });
+</script>
+
+</body>
+</html>

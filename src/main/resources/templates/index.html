@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/header :: header">
+</head>
+<body>
+
+<div id="wrapper" ng-controller="appController as appCtrl">
+    <!-- Navigation -->
+    <div th:replace="fragments/nav :: nav"></div>
+    <!-- spinner#container -->
+    <div id="container">
+        <span us-spinner="" spinner-key="spinner-1"></span>
+        <div ng-include="'errorTemplate'"></div>
+        <div ng-include="'validationTemplate'"></div>
+    </div>
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div ui-view="" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">Loading ... </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-content -->
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+    <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Angular Global Templates -->
+<script type="text/ng-template" id="validationTemplate">
+    <div class="callout callout-error ng-cloak" ng-if="appCtrl.validation.length">
+        <ul style="margin: 0 0 0 20px;">
+            <li ng-repeat="error in appCtrl.validation">{{error}}</li>
+        </ul>
+    </div>
+</script>
+<script type="text/ng-template" id="errorTemplate">
+    <div class="jnet-alert-container" ng-if="appCtrl.error.title">
+        <div class="jnet-alert" style="opacity: 0.85027039117758;">
+            <div class="jnet-alert-icon"><i class="fa fa-exclamation"></i></div>
+            <div class="jnet-alert-body"><strong>{{appCtrl.error.title}}</strong>
+
+                <p>{{appCtrl.error.content}}</p>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- Load Angular App -->
+<script th:inline="javascript">
+    require.config({
+        baseUrl: contextPath,
+        waitSeconds: 0
+    });
+    require(['jquery', 'angular', 'js/app'], function ($, angular, app) {
+        $('#container').attr('ng-cloak', '');
+        $('#container').addClass('init');
+        app.constant('props', {
+            isMock: false,
+            token: $("meta[name='_csrf']").attr("content"),
+            ctxPath: contextPath,
+            API_PATH: contextPath + '/public',
+            DEFAULT_ERROR: {
+                "title": "Error!",
+                "message": "Please contact Help Desk."
+            },
+            TIME_OUT: 45000,
+            RETRIES: 25,
+            RETRY_INT: 15000
+        });
+        angular.bootstrap(document, ['app']);
+    });
+</script>
+
+</body>
+</html>

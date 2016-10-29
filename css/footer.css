@@ -1,0 +1,55 @@
+/** footer **/
+
+.footer-bottom {
+    position: relative;
+    background: #2e2e2e;
+    line-height: 35px;
+    border-top: 1px solid #444;
+    color: #ccc;
+    padding: 15px 0;
+}
+
+@media (max-width: 978px) {
+    .footer-bottom .alignright, .footer-bottom .alignleft, .footer-bottom .social-icons {
+        text-align: center;
+        float: none;
+        width: 100%;
+        margin: 0;
+        line-height: 20px;
+    }
+}
+
+div#footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 5px 2px;
+    background-color: white;
+    padding: 20px 0 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+div#footer a {
+    cursor: pointer;
+}
+
+div#footer a > i {
+    text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+    div#footer {
+        /**      margin: 0 20px; **/
+    }
+}
+
+div#footer-expanded {
+    padding: 2px 20px;
+}
+
+div.footer-inner {
+    text-align: center;
+}
+
+/** end footer stuff **/

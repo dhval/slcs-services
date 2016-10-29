@@ -1,0 +1,129 @@
+/** custom panel **/
+.panel {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .10);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.10);
+    min-width: 225px;
+}
+
+.systemError {
+    padding: 0 6px;
+    margin: 0;
+    color: #999;
+}
+
+div.panel-red {
+    text-align: left;
+    color: #fff;
+    text-shadow: 0px -1px #000;
+    border-radius: 0;
+    border-color: darkred;
+    background-color: darkred;
+    background-image: -moz-linear-gradient(top, #cc4f4b, darkred);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cc4f4b), to(darkred));
+    background-image: -webkit-linear-gradient(top, #cc4f4b, darkred);
+    background-image: linear-gradient(to bottom, #cc4f4b, darkred);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cc4f4b', EndColorStr='#8b0000');
+    line-height: 23px;
+}
+
+div.panel-heading.header {
+    text-align: center;
+}
+
+div.panel-data > a {
+    color: black;
+}
+
+div.panel-data ul {
+    padding: 5px;
+    margin: 0;
+    border: 0;
+}
+
+div.panel-heading.header {
+    text-align:center;
+}
+
+.nav-stacked.nav-pills > li > a {
+    color: black;
+    padding: 4px 15px;
+}
+
+.nav-stacked.nav-pills > li > a:hover,
+.nav-stacked.nav-pills > li > a:focus {
+    text-decoration: none;
+}
+
+.nav-stacked.nav-pills > li {
+    color: black;
+    border-radius: 2px;
+    border: 1px solid #eee;
+    line-height: 25px;
+}
+
+.nav-stacked.nav-pills > li.active {
+    border-left: 5px solid red;
+}
+
+ul.nav-info > li {
+    margin: 0 5px;
+}
+
+ul.nav-info > li span.badge {
+    margin: 0 5px;
+}
+
+ul.nav-info > li button {
+    text-align: left;
+}
+
+ul.nav-info > li > .data-text {
+    color: #31708f;
+}
+
+ul.nav-panel {
+    margin: 0
+}
+
+.nav-panel > li {
+    /* color: #fff; */
+    border-radius: 4px;
+    padding: 10px
+}
+
+.nav-panel > li.header {
+    background-color: #31708f;
+    margin: 2px;
+    padding: 8px;
+}
+
+.nav-panel > li > .data-label {
+    color: #31708f;
+    /* background-color: #d9edf7; */
+    border-color: #bce8f1;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.nav-panel > li > .data-text {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.nav-panel > li:last-child {
+    /* padding: 6px 6px; */
+    float: right;
+}
+
+.nav-panel > li:last-child a:hover,
+.nav-panel > li:last-child a:focus {
+    background-color: #d2322d
+}
+
+
+.panel-info > .panel-heading > * {
+    background: transparent;
+}
+
+/** end - custom panel **/

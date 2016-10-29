@@ -12,6 +12,10 @@
 src/main/resources/secret.properties
 client_secret.html
 gmail-quickstart.json/
+.env
+.mvn/
+Procfile.local
+client_secret.json
 
 ## java/ide specific
 *.class

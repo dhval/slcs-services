@@ -1,0 +1,19 @@
+{
+  "name": "spring-boot-npm",
+  "version": "1.0.0",
+  "description": "Provide web dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-less": "^1.1.0",
+    "load-grunt-tasks": "^3.4.0"
+  }
+}

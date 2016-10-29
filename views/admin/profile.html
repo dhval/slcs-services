@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+    <div class="container-fluid" ng-cloak="" ng-init="view='admin'">
+        <div class="row well well-sm">
+            <select class="form-control" ng-model="selectedUser" ng-init="selectedUser='default'" ng-change="updatePerson()">
+                <option value="default">Select A User From Below or Invite A New User</option>
+                <option ng-repeat="u in users" value="{{u.value}}">{{u.label}}</option>
+            </select>
+        </div>
+        <div class="row" ng-show="!user.email">
+            <div class="panel panel-info">
+                <div class="panel-heading"> Invite User </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="fname" class="asterisk">First Name</label>
+                        <input id="fname" autofill="" class="form-control" type="text"
+                               placeholder="First Name" ng-model="domainInfo.fname"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="middle" class="asterisk">Middle</label>
+                        <input id="middle" autofill="" class="form-control" type="text"
+                               placeholder="Middle Name" ng-model="domainInfo.mname"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname" class="asterisk">Last Name</label>
+                        <input id="lname" autofill="" class="form-control" type="text"
+                               placeholder="Last Name" ng-model="domainInfo.lname"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"  class="asterisk">Email</label>
+                        <input id="email" autofill="" class="form-control" type="text"
+                               placeholder="Email" maxlength="25"
+                               ng-model="domainInfo.email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" class="form-control"
+                               type="password" ng-model="domainInfo.password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="control-label">
+                            User Role
+                            <select id="role" autofill="" class="form-control" ng-model="domainInfo.role">
+                                <option value="">-- Select User Role --</option>
+                                <option value="admin">Admin</option>
+                                <option value="supervisor">Supervisor</option>
+                                <option value="user">User</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_project" class="control-label">
+                            User Project
+                            <select id="user_project" autofill="" class="form-control"
+                                    ng-change="selectProject(project)"
+                                    ng-model="project" ng-model-options="{debounce: 750}"
+                                    ng-options="item.label for item in projects track by item.value">
+                                <option value="">-- Select User Project --</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-inline"><input type="checkbox" ng-model="user.accountNonLocked">Not Locked</label>
+                        <label class="checkbox-inline"><input type="checkbox" ng-model="user.enabled">Enabled</label>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-sm btn-info" ng-click="inviteUser()">Invite User</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="user.email">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <b> Update Profile - {{user['email']}} ( {{user['role']}} )  {{user['enabled']?'Active':'Inactive'}} </b>
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label for="fname2" class="asterisk">First Name</label>
+                    <input id="fname2" autofill="" class="form-control" type="text"
+                           placeholder="First Name" ng-model="user.fname"/>
+                </div>
+                <div class="form-group">
+                    <label for="middle2" class="asterisk">Middle</label>
+                    <input id="middle2" autofill="" class="form-control" type="text"
+                           placeholder="Middle Name" ng-model="user.mname"/>
+                </div>
+                <div class="form-group">
+                    <label for="lname2" class="asterisk">Last Names</label>
+                    <input id="lname2" autofill="" class="form-control" type="text"
+                           placeholder="Last Name" ng-model="user.lname"/>
+                </div>
+                <div class="form-group">
+                    <label for="role2" class="control-label">
+                        User Role
+                        <select id="role2" autofill="" class="form-control" ng-model="user.role">
+                            <option value="">-- Select User Role --</option>
+                            <option value="admin">Admin</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="user">User</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="user_project2" class="control-label">
+                        User Project
+                        <select id="user_project2" autofill="" class="form-control"
+                                ng-model="project" ng-model-options="{debounce: 750}"
+                                ng-options="item.label for item in projects track by item.value">
+                            <option value="">-- Select User Project --</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-inline"><input type="checkbox" ng-model="user.accountNonLocked">Not Locked</label>
+                    <label class="checkbox-inline"><input type="checkbox" ng-model="user.enabled">Enabled</label>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-sm btn-info" ng-click="updateUserProfile()">Update User Profile </button>
+            </div>
+        </div>
+        </div>
+
+    </div>
+    <!-- container-fluid -->
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.entry {
+    display: flex;
+    flex-wrap: nowrap;
+}
+input.item {
+    width:5px;
+    text-align:center;
+}
+.entry .item {
+    flex: 5 3 10px;
+    box-sizing: border-box;
+    margin-left:2px;
+    text-align: left;
+}
+.entry .index {
+    flex:1 10px;
+}
+.entry .checkitem {
+    flex:1 5px;
+    align-items: flex-start;
+}
+.entry .chargecode {
+    flex:10 100px;
+}
+.entry .total {
+    flex:5 10px;
+}
+.entry .calculator {
+    flex:2 15px;
+}
+
+.item-label:before {
+    content: attr(name) ": ";
+    font-weight: bold;
+}

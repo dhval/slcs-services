@@ -1,0 +1,51 @@
+/** forms & buttons */
+
+div.form-actions {
+    text-align: right;
+    /**    position: absolute;
+    bottom: 130px;
+    left: 30px;
+    width: 96%;
+    clear: both;
+**/
+}
+
+div.form-actions > * {
+    margin: 0;
+}
+
+div.form-group > button {
+    margin-right: 15px;
+}
+
+form[name="userForm"] label {
+    width: 100%
+}
+
+/** Create User Form **/
+
+div.form-profile label {
+    margin-bottom: 0;
+}
+
+span.in-label {
+    float: right;
+    margin-left: 5%;
+    font-weight: normal;
+    font-size: 0.9em
+}
+
+ul.unstyled,
+ol.unstyled {
+    /* margin-left: 0; */
+    list-style: none;
+}
+
+ul.unstyled li {
+    display: inline;
+    white-space: nowrap;
+}
+
+span.divider {
+    margin: 0 5px;
+}

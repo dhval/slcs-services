@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+    <div class="container-fluid" ng-cloak="">
+        <div class="row well well-sm">
+            <select class="form-control" ng-model="projectId" ng-init="projectId='0'"
+                    ng-change="selectProject()">
+                <option value="0">Select A Project From Below or Create A New One</option>
+                <option ng-repeat="p in projects track by p.id" value="{{p.id}}">{{p.label}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading" ng-show="!project.id"> Create New Project </div>
+                <div class="panel-heading" ng-show="project.id"> Update A Project </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="pname" class="asterisk">Project Name</label>
+                        <input id="pname" autofill="" class="form-control" type="text"
+                               placeholder="Project Name" ng-model="project.name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pclient" class="asterisk">Project Client</label>
+                        <input id="pclient" autofill="" class="form-control" type="text"
+                               placeholder="Project Client" ng-model="project.client"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pactive" class="asterisk">Active</label>
+                        <input id="pactive" autofill="" class="form-control" type="checkbox"
+                               placeholder="Last Name" ng-model="project.active"/>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-sm btn-info" ng-click="saveProject()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</body>
+
+</html>

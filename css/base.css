@@ -1,0 +1,170 @@
+/* line 14, dist/base-css/colors.less */
+.red {
+  color: #cc4f4b;
+}
+/* line 18, dist/base-css/colors.less */
+.green {
+  color: #5cb85c;
+}
+/* line 22, dist/base-css/colors.less */
+.dark-blue {
+  color: #31708f;
+}
+/* line 26, dist/base-css/colors.less */
+.even {
+  background-color: #f9f9f9;
+}
+/* line 30, dist/base-css/colors.less */
+#header {
+  color: #6c94be;
+}
+/* line 1, dist/base-css/defaults.less */
+[ng-click] {
+  cursor: pointer;
+}
+/* line 4, dist/base-css/defaults.less */
+pre {
+  word-break: normal;
+  word-wrap: normal;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+}
+/* line 12, dist/base-css/defaults.less */
+.bluelist dt {
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: left;
+  font-weight: bold;
+  color: #428bca;
+}
+/* line 20, dist/base-css/defaults.less */
+.bluelist dd {
+  margin: 0 0 0 110px;
+  padding: 0 0 0.5em 0;
+}
+/* line 27, dist/base-css/defaults.less */
+dl,
+.bluelist,
+dl {
+  padding: 0.5em;
+}
+/* line 32, dist/base-css/defaults.less */
+dl .horizontal dt {
+  float: left;
+  padding: 0 5px;
+}
+/* line 36, dist/base-css/defaults.less */
+dl .horizontal dd {
+  padding: 0 0 5px 5px;
+}
+/* line 43, dist/base-css/defaults.less */
+dt:after {
+  content: ":";
+}
+/* 
+ * CSS3 Mixins
+ * 
+ */
+/* line 1, dist/base-css/shadow-box.less */
+#tiltshadows {
+  margin: 1em auto;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+/* line 8, dist/base-css/shadow-box.less */
+#tiltshadows article {
+  background: #faf0e1;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 10px;
+  color: #5b83ad;
+  text-shadow: 0 1px 0 #ffffff;
+  line-height: 1.7em;
+  text-align: center;
+  display: block;
+}
+/* line 17, dist/base-css/shadow-box.less */
+#tiltshadows article:after,
+#tiltshadows articlebefore {
+  -webkit-box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 15px;
+  z-index: -1;
+  width: 50%;
+  height: 20%;
+  content: "";
+  background: rgba(0, 0, 0, 0.7);
+}
+/* line 27, dist/base-css/shadow-box.less */
+#tiltshadows article:before {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  right: auto;
+  left: 10px;
+}
+/* line 32, dist/base-css/shadow-box.less */
+#tiltshadows article:after {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+/* line 40, dist/base-css/shadow-box.less */
+#roundandshadow {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.7);
+  background: #faf0e1;
+  padding: 10px;
+  color: #5b83ad;
+  text-shadow: 0 1px 0 #ffffff;
+  line-height: 1.7em;
+  text-align: center;
+  display: block;
+  width: 700px;
+  margin: 0 auto;
+}
+/* line 54, dist/base-css/shadow-box.less */
+#text {
+  color: #5b83ad;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 1.7;
+  text-align: center;
+  display: block;
+  margin: 60px auto 0;
+  width: 700px;
+}
+/* line 65, dist/base-css/shadow-box.less */
+#opacity {
+  background: #faf0e1;
+  opacity: 0.3;
+  /* for IE */
+  filter: alpha(opacity=30);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  width: 700px;
+  margin: -224px auto 0;
+  height: 210px;
+}
+/*# sourceMappingURL=css/base.css.map */

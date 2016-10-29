@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+
+<div class="container-fluid">
+    <div class="panel panel-info" flex layout="column" layout-align="center" ng-repeat="sheet in sheets">
+        <div class="panel-heading layout-align-space-between-end" layout="row">
+            <md-content layout="row" flex="100" layout-align="center center">
+                <md-chips flex="100" layout="row">
+                    <md-chip class="item-label" name="Pay Period" layout-align="start end">
+                        {{sheet.beginDt}}
+                    </md-chip>
+                    <md-chip class="item-label" name="Status" layout-align="end end">
+                        <span class="label label-default"
+                              ng-class="{'submitted':'label-primary', 'approved':'label-success'}[sheet.status]">
+                        {{sheet.status}}
+                        </span>
+                    </md-chip>
+                </md-chips>
+            </md-content>
+        </div>
+        <div class="panel-body">
+            <div flex="100" layout="row" ng-repeat="(key,val) in sheet.entries">
+                <div class="item-label" name="{{key}}">{{val}}</div>
+            </div>
+            <div flex="25" layout="column" layout-align="start center">
+                <md-content layout="row" flex="100" layout-align="center center">
+
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+

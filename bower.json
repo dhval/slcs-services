@@ -1,0 +1,60 @@
+{
+  "name": "spring-boot-bower",
+  "description": "Provide web dependencies",
+  "main": "index.js",
+  "authors": [
+    "Dhval <dhval@mailinator.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.15",
+    "jquery.inputmask": "~2.5.0",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.2.0",
+    "angular": "1.4.8",
+    "angular-route": "1.4.8",
+    "angular-animate": "1.4.8",
+    "angular-sanitize": "1.4.8",
+    "angular-spinner": "~0.8.0",
+    "angular-resource": "1.4.8",
+    "startbootstrap-sb-admin-2": "^1.0.8",
+    "angular-aria": "1.5.3",
+    "angular-material": "1.0.7",
+    "moment": "2.12.0",
+    "angular-ui-router": "0.2.18"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "css": "./dist/css/*",
+      "less": "./less/*",
+      "fonts": "./dist/fonts/*",
+      "js": "./dist/js/*"
+    },
+    "angular-ui-bootstraps": {
+      "dist": "dist/**"
+    },
+    "font-awesome": {
+      "css": "css/*",
+      "less": "less/*",
+      "fonts": "fonts/*"
+    }
+  },
+  "exclude": [
+    "vendor/{,*/}*.js"
+  ],
+  "resolutions": {
+    "angular-spinner": "0.8.0",
+    "angular": "1.4.8"
+  },
+  "appPath": "app"
+}

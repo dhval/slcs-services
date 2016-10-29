@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+<div class="container-fluid" ng-cloak="">
+    <div class="row well well-sm">
+        <select class="form-control" ng-init="selectedUser='default'" ng-model="selectedUser" ng-change="updatePerson()">
+            <option value="default">Select A User</option>
+            <option ng-repeat="u in users" value="{{u.value}}">{{u.label}}</option>
+        </select>
+        <md-datepicker ng-model="domainInfo.begin" md-date-filter="appCtrl.filterPastSunday"
+                       md-min-date="appCtrl.minDate" md-max-date="appCtrl.maxDate"
+                       md-placeholder="Begin date"></md-datepicker>
+        <md-datepicker ng-model="domainInfo.end" md-date-filter="filterPastSunday"
+                       md-min-date="appCtrl.minDate" md-max-date="appCtrl.maxDate"
+                       md-placeholder="End date"></md-datepicker>
+        <button class="btn btn-sm btn-info" ng-click="findSheets()">Search</button>
+    </div>
+    <div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <b> Time Sheet - {{selectedUser}} </b>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-bottom: 10px;padding-bottom: 5px;border-bottom: 1px solid #bce8f1;"
+                 ng-repeat="sheet in sheets" ng-class="$odd?'odd':'even'">
+                <input type="hidden" ng-model="sheet.id">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" ng-init="sheet.beginDt = appCtrl.parseISODate(sheet.beginDt)">
+                    <md-content layout="column">
+                        <md-datepicker ng-model="sheet.beginDt" ng-disabled="true" md-placeholder="Enter date">
+                        </md-datepicker>
+                        <md-input-container>
+                            <label>Status</label>
+                            <md-select ng-model="sheet.status">
+                                <md-option value="entered">entered</md-option>
+                                <md-option value="submitted">submitted</md-option>
+                                <md-option value="approved">approved</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </md-content>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="entry">
+                        <div class="item chargecode">Charge Code</div>
+                        <div ng-repeat="day in sheet.headers" class="item">{{day}}</div>
+                        <div class="item total">Total</div>
+                    </div>
+                    <div ng-repeat="entry in sheet.entries" class="entry">
+                        <div class="item chargecode">{{entry.code}}</div>
+                        <input maxlength="5" ng-model="entry.sun" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'sun')"/>
+                        <input maxlength="5" ng-model="entry.mon" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'mon')"/>
+                        <input maxlength="5" ng-model="entry.tue" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'tue')"/>
+                        <input maxlength="5" ng-model="entry.wed" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'wed')"/>
+                        <input maxlength="5" ng-model="entry.thu" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'thu')"/>
+                        <input maxlength="5" ng-model="entry.fri" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'fri')"/>
+                        <input maxlength="5" ng-model="entry.sat" class="item"
+                               ng-model-options="{debounce: 750}" ng-change="calcEntry(entry, 'sat')"/>
+                        <div class="item total">{{entry.total}}</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                    <button class="btn btn-sm btn-info" ng-click="saveSheet(sheet)">Save</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                    <button class="btn btn-sm btn-danger" ng-click="clearSheet(sheet)">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- container-fluid -->
+</body>
+
+</html>
+

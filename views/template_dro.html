@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+<div class="container-fluid" ng-cloak="">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <b> Enter Time </b>
+        </div>
+        <div class="panel-body">
+            <div class="row" ng-repeat="user in userList" ng-class="$odd?'odd':'even'">
+                <div class="col-md-4">
+                    <dl class="horizontal">
+                        <dt>Name</dt>
+                        <dd>{{user['fname']}} {{user['mname']}} {{user['lname']}}</dd>
+                        <dt>Email</dt>
+                        <dd>{{user['email']}}</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <dl class="horizontal">
+                        <dt>Role</dt>
+                        <dd>{{user['role']}}</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <label class="checkbox-inline"><input type="checkbox" ng-model="user.accountNonExpired">accountNonExpired</label>
+                    <label class="checkbox-inline"><input type="checkbox" ng-model="user.credentialsNonExpired">credentialsNonExpired</label>
+                    <label class="checkbox-inline"><input type="checkbox" ng-model="user.enabled">enabled</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- container-fluid -->
+</body>
+
+</html>

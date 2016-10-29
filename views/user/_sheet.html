@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<body>
+
+<form name="sheet">
+<md-content layout="column" layout-gt-sm="row" layout-margin="10" layout-align="center"
+            ng-cloak="" ng-init="addSheet()">
+    <md-datepicker flex="100" flex-gt-sm="5" layout="column" style="min-height:65px;"
+                   ng-model="beginDt" md-date-filter="onlyWeekendPredicate"
+                   md-min-date="appCtrl.minDate" md-max-date="appCtrl.maxDate" md-placeholder="Enter date">
+    </md-datepicker>
+    <md-input-container layout="row" flex layout-gt-sm="column" ng-repeat="item in sheet.entries">
+        <div class="hint" flex> {{item.day}}</div>
+        <div ng-messages="hours.$error">
+            <div ng-message="pattern">Incorrect hours.</div>
+        </div>
+        <input flex ng-model="item.hours" aria-label="enter hours"
+               ng-pattern="/^[0-2]?[0-9]?\.?[0257]?[05]?$/">
+    </md-input-container>
+    <md-button flex="5">
+        <label for="file-input">Attachment</label>
+        <input id="file-input" type="file" name="file"
+               ng-files="onFileSelect($files)" accept=".pdf,.csv,.xsl,.xml,.mpp,application/vnd.ms-excel">
+    </md-button>
+    <md-button flex="5" class="md-raised md-accent"
+               ng-disabled="sheet.status === 'approved' || sheet.status === 'submitted'"
+               ng-click="appCtrl.isValid() && submitSheet(sheet)"> Submit
+    </md-button>
+</md-content>
+</form>
+
+</body>
+
+</html>
+

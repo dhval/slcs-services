@@ -1,0 +1,162 @@
+/** nav bar **/
+
+.navbar-static-top {
+    margin-bottom: 10px;
+    color: #FFF;
+    /**
+    filter: -;
+    background: url(img/navbg.png);
+    background-repeat: repeat-x;
+    height: 48px;
+     **/
+    border: 0;
+    border-radius: 0;
+}
+.navbar-default {
+    background-color: #cacaca;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-brand > img {
+    display: inline-block;
+    height: 34px;
+    width: 34px;
+    top: inherit;
+    margin: -6px 15px 0 0;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-nav > li > a {
+    /* border: 0; */
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 48px;
+    padding: 0 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 0 #000;
+    color: #FFF;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+#sidenav {
+    width: 280px;
+    background: #222;
+    position: fixed;
+    top: 48px;
+    right: 0;
+    height: 100%;
+    width: 300px;
+}
+
+#sidenav:before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: -48px;
+    right: 0;
+    height: 9999px;
+    width: 100%;
+    background: #222;
+    z-index: -1;
+}
+
+#sidenav ul {
+    background: #444;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#sidenav li {
+    line-height: 20px;
+}
+
+#sidenav a {
+    padding: 0 0 0 32px;
+    margin: 0;
+    color: #FFF;
+    display: block;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    line-height: 50px;
+    font-size: 16px;
+    white-space: nowrap;
+    padding-left: 42px;
+}
+
+#appNav {
+    background-color: #555;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 #000;
+    box-shadow: 4px 5px 1px -3px #eee;
+}
+
+#appLinks > li {
+    position: relative;
+    display: inline-block;
+    line-height: 40px;
+}
+
+#appLinks > li > a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 12px 20px;
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        background: #222;
+        position: fixed;
+        top: 48px;
+        right: 0;
+        min-height: 100%;
+        width: 300px;
+    }
+
+    #navbar a {
+        padding: 0;
+        margin: 0;
+        color: #FFF;
+        display: block;
+        border-top: 1px solid #555;
+        border-bottom: 1px solid #333;
+        white-space: nowrap;
+    }
+
+    #navbar ul {
+        background: #444;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+}
+
+
+
+/** end navbar **/
