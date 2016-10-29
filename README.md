@@ -1,5 +1,5 @@
 
-## Time Sheet App - Open source workflow for managing billing time sheets using spring-boot and angularjs.
+## Time Sheet App - Open source workflow for managing time sheets.
 
 <img src="https://travis-ci.org/la-team/light-admin.png?branch=master"/>
 
@@ -7,7 +7,7 @@
 
 ### Features
 
-* <b>Extensible Configuration</b>: Allows developers to easily configure their user interface using Angular and Spring framework.
+* <b>Extensible Configuration</b>: Allows developers to easily configure their user interface using [Angular JS](https://angularjs.org/) and [Spring](https://spring.io/).
 * <b>Cloud and Local Deployment</b>: Examples demonstrating deployment on Heroku or Ubuntu using [Spring Boot](https://projects.spring.io/spring-boot/).
 * <b>CRUD operations</b>: Complete entities manipulation support using Spring repositories.
 * <b>Custom Validation</b>: JSR-303 annotation-based validation rules support
