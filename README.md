@@ -17,6 +17,61 @@
 * <b>Easy integration</b>: Servlet 2.5/3.0 web applications supported
 
 
+### Deployment
+
+#### IntelliJ IDEA IDE
+
+<b>Environment variables</b>
+```
+AWS_ACCESS_KEY_ID=YOUR_KEY
+AWS_SECRET_ACCESS_KEY=YOUR_SECRET
+```
+
+<b>VM arguments</b>
+```
+-Dserver.port=8080
+-Dspring.datasource.url=jdbc:postgresql://localhost:5432/slcsdb
+-Dspring.datasource.username=postgres
+-Dspring.datasource.password=postgres
+```
+
+#### Heroku
+
+##### Run Heroku locally
+
+<b>Create .env file</b>
+
+```
+JDBC_DATABASE_URL='jdbc:postgresql://localhost/slcsdb'
+JDBC_USER=postgres
+JDBC_PASS=postgres
+```
+
+<b>Create Procfile.local</b>
+
+```
+web: java $JAVA_OPTS -Dserver.port=$PORT -Dspring.datasource.url=$JDBC_DATABASE_URL  \
+-Dspring.datasource.username=postgres -Dspring.datasource.password=postgres \
+-jar target/services.jar
+```
+
+<b>Build and Run </b>
+```
+$ git add . && git commit -m "wip"
+$ mvn clean install
+$ heroku local -f Procfile.local  
+```
+
+#### Linux CLI
+
+<b>As a spring boot fat executable jar</b>
+
+```
+java -jar target/services.jar -Dserver.port=$PORT -Dspring.datasource.url=$JDBC_DATABASE_URL  \
+-Dspring.datasource.username=postgres -Dspring.datasource.password=postgres \
+
+```
+
 3rd Party Time Sheet Manager
 
 This application allows users to submit their timesheet similar to depositing checks online.
